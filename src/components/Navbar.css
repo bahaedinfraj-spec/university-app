@@ -1,0 +1,37 @@
+.navbar {
+  background-color: #172554;
+  padding: 0 20px;
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin: 0;
+  padding: 14px 0;
+  list-style: none;
+}
+
+.navbar a {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.navbar a:hover,
+.navbar a:focus-visible {
+  color: #bfdbfe;
+}
+
+.navbar a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+@media (max-width: 480px) {
+  .navbar ul {
+    gap: 18px;
+  }
+}

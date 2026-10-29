@@ -1,32 +1,65 @@
-import React from 'react';
+import Header from './components/Header';
+import Navbar from './components/Navbar';
+import StudentCard from './components/StudentCard';
+import Footer from './components/Footer';
+import StudentImg from './assets/OIP.webp'; // N'oubliez pas de préciser l'extension (.jpg ou .png)
+import './App.css';
 
 function App() {
-  const etudiant = {
-    nom: "exemple",
-    prenom: "exemple",
-    email: "exemple@exemple",
-    telephone: "+216 12345678",
-    filiere: "Génie Informatique",
-    anneeEtude: "2ème année",
-    groupe: "Groupe C",
-    ville: "exemple"
-  };
+  // Liste des étudiants avec l'image ajoutée à chacun
+  const etudiants = [
+    {
+      id: 1,
+      prenom: "exemmple1",
+      nom: "exemmple1",
+      email: "exemmple1@exemmple1",
+      telephone: "+216 12345678",
+      filiere: "GLSI 2",
+      photo: StudentImg
+    },
+    {
+      id: 2,
+      prenom: "exemmple2",
+      nom: "exemmple2",
+      email: "exemmple2@exemmple2",
+      telephone: "+216 12345678",
+      filiere: "GLSI 2",
+      photo: StudentImg
+    },
+    {
+      id: 3,
+      prenom: "exemmple3",
+      nom: "exemmple3",
+      email: "exemmple3@exemmple3",
+      telephone: "+216 12345678",
+      filiere: "GLSI 2",
+      photo: StudentImg
+    }
+  ];
 
   return (
-    <div style={{ backgroundColor: '#d6c267' }}>
-      <h1 style={{ color: 'black' }}>Fiche Étudiant</h1>
-      <img src='https://cegepstfe.ca/app/uploads/2024/11/Etudiant-un-jour_.jpg' width={200} height={200} style={{borderRadius: '50%'}} img/>
-      <p style={{ color: 'black' }}><strong>Nom :</strong> {etudiant.nom}</p>
-      <p style={{ color: 'black' }}><strong>Prénom :</strong> {etudiant.prenom}</p>
-      <p style={{ color: 'black' }}><strong>Email :</strong> {etudiant.email}</p>
-      <p style={{ color: 'black' }}><strong>Téléphone :</strong> {etudiant.telephone}</p>
-      <p style={{ color: 'black' }}><strong>Filière :</strong> {etudiant.filiere}</p>
-      <p style={{ color: 'black' }}><strong>Année d'étude :</strong> {etudiant.anneeEtude}</p>
-      <p style={{ color: 'black' }}><strong>Groupe :</strong> {etudiant.groupe}</p>
-      <p style={{ color: 'black' }}><strong>Ville :</strong> {etudiant.ville}</p>
-      <a href={`mailto:${etudiant.email}`} className="btn-contact">
-          Contacter
-      </a>
+    <div className="app-container">
+      <Header />
+      <Navbar />
+
+      <main className="content">
+        <h2>Liste des étudiants</h2>
+        <div className="cards-grid">
+          {etudiants.map((etudiant) => (
+            <StudentCard
+              key={etudiant.id}
+              prenom={etudiant.prenom}
+              nom={etudiant.nom}
+              email={etudiant.email}
+              telephone={etudiant.telephone}
+              filiere={etudiant.filiere}
+              photo={etudiant.photo}
+            />
+          ))}
+        </div>
+      </main>
+
+      <Footer />
     </div>
   );
 }
